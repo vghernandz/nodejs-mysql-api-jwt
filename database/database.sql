@@ -1,0 +1,34 @@
+CREATE DATABASE nodejs_mysql;
+
+USE nodejs_mysql;
+
+-- 
+-- CREATE TABLES
+--
+
+-- Roles
+CREATE TABLE roles(
+  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  role VARCHAR(50) NOT NULL
+);
+
+-- Users
+CREATE TABLE users(
+  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_role INTEGER NOT NULL,
+  name VARCHAR(50),
+  lastname VARCHAR(50),
+  password VARCHAR(100) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  country VARCHAR(30),
+  phone BIGINT(20),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- 
+-- INSERT DATA TABLES
+--
+
+-- Roles
+INSERT INTO roles (role) VALUES ('admin'), ('user');
